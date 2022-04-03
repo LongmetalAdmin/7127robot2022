@@ -28,7 +28,7 @@ public class Fire extends SequentialCommandGroup {
       new WaitCommand(1),
 
       new SetFeederSpeed(gate, 0),
-      /*
+      /* servo code - inactive
       new ToggleGate(gate, true),
 
       new ToggleGate(gate, false),//Release balls
