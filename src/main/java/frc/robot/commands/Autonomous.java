@@ -41,16 +41,23 @@ public class Autonomous extends SequentialCommandGroup {
     addCommands(  
     new ToggleLimelightLED(v),   // Works
     //new ToggleGate(f, true),
+    
     new DriveStraight(d, 30,true),
     new WaitCommand(0.5),
 
-    new SetIntakeSpeed(i, -0.275),
-    new DriveStraight(d, 60,false),
+    new ParallelCommandGroup(
+      new SetIntakeSpeed(i, -0.275),
+      new DriveStraight(d, 60,false)
+    ),
+    
     //new ToggleGate(f, true),
     new WaitCommand(1),
-    new SetIntakeSpeed(i, 0),
 
-    new GyroTurn(d, 170)
+    new ParallelCommandGroup(
+      new SetIntakeSpeed(i, 0),
+
+      new GyroTurn(d, 170)
+    )
 
     //new DriveStraight(d, 80,false)
 
